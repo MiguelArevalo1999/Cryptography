@@ -74,20 +74,15 @@ def ExtEuclidean(a, b):
     return b, x0, y0
 
 
-def Encrypt(String plain_text, int alphabet_length, int alpha, int beta)
-    {
+def Encrypt(n, alpha, beta):
         f=open("mensaje_d.txt","wb")
-        f.write(decifrarmensaje)
-        f.close
-        for (int i=0; i<plain_text.length(); i++)
-        {
-            int P_n = (int)plain_text.charAt(i);
-            int C_n = ((alpha * P_n) + beta) % alphabet_length;
-            cipher_text.append((char)C_n);
-        }
-
-        return cipher_text.toString();
-    }
+        #f.write(decifrarmensaje)
+        for letra in f:
+            P_n = int(letra)
+            C_n = int(((alpha * P_n) + beta) % n)
+            cipher_text=char(C_n)
+            f.write(string(cipher_text))
+            f.close
 
      #/*
      #*  Aplicando la formula de des cifrado: P_n = alpha^-1 * [ C_n + (-beta) ] mod longitud_del_alfabeto, donde:
@@ -96,21 +91,6 @@ def Encrypt(String plain_text, int alphabet_length, int alpha, int beta)
      #*  alpha, es el valor multiplicativo de la llave en inverso multiplicativo
      #*  beta, es el valor aditivo de la llave en inverso aditivo
      #* */
-    public static String Decrypt(String cipher_text, int alphabet_length, int alpha, int beta)
-    {
-        StringBuilder decipher_text = new StringBuilder();
-
-        for (int i=0; i<cipher_text.length(); i++)
-        {
-            int C_n = (int)cipher_text.charAt(i);
-            int alpha_inverso_multiplicativo = AritmeticaModular.InversoMultiplicativo(alpha, alphabet_length);
-            int beta_inverso_aditivo = AritmeticaModular.InversoAditivo(beta, alphabet_length);
-            int P_n = ( alpha_inverso_multiplicativo * ( C_n + beta_inverso_aditivo ) ) % alphabet_length;
-
-            decipher_text.append((char)P_n);
-        }
-        return decipher_text.toString();
-    }
 
 m=int(input("Ingresa el valor de alpha: "))
 n=int(input("Ingresa el valor de n: "))
