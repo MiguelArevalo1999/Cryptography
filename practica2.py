@@ -40,7 +40,7 @@ combo1.place(x=200,y=130)
 combo1['values']=('Español','Ingles')
 
 def seleccionar_funcion():
-        combo_sel=combo.get()
+        combo_sel=combo1.get()
         if combo_sel == "Español":
             n=27
         elif combo_sel == "Ingles":
@@ -91,13 +91,14 @@ def Encrypt(n, alpha, beta):
      #*  alpha, es el valor multiplicativo de la llave en inverso multiplicativo
      #*  beta, es el valor aditivo de la llave en inverso aditivo
      #* */
-
-m=int(input("Ingresa el valor de alpha: "))
-n=int(input("Ingresa el valor de n: "))
-print("GCD: ",Euclides(m,n))
-if(Euclides(m,n)==1):
-	print("Llave valida\n")
-else:
-	print("Llave invalida\n")
-print("Inverso Multiplicativo: ",Inverse(m,n))
-print(seleccionar_funcion)
+sel=Button(raiz, text="Start process",command=seleccionar_funcion)
+sel.place(x=50,y=180)
+#m=int(input("Ingresa el valor de alpha: "))
+#n=int(input("Ingresa el valor de n: "))
+#print("GCD: ",Euclides(m,n))
+#if(Euclides(m,n)==1):
+#	print("Llave valida\n")
+#else:
+#   print("Llave invalida\n")
+#print("Inverso Multiplicativo: ",Inverse(m,n))
+raiz.mainloop()
