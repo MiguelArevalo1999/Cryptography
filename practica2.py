@@ -47,8 +47,8 @@ def seleccionar_funcion():
             n=27
         elif combo_sel1 == "Spanish" and combo_sel == "Affine":
             n=27
-            alpha,beta=generar(n)
-            Encrypt(n,alpha,beta)
+            generar(n)
+            #Encrypt(n,a,b)
         elif combo_sel1 == "English" and combo_sel == "Vigenére":
             n=26
         elif combo_sel1 == "English" and combo_sel == "Affine":
@@ -57,38 +57,38 @@ def seleccionar_funcion():
             messagebox.showinfo("Error ","You must select an option")
         return n
 
-def generateKey(string, key):
-    key = list(key)
-    if len(string) == len(key):
-        return(key)
-    else:
-        for i in range(len(string) -
-                       len(key)):
-            key.append(key[i % len(key)])
-    return("" . join(key))
+def generateKey(string, key): 
+    key = list(key) 
+    if len(string) == len(key): 
+        return(key) 
+    else: 
+        for i in range(len(string) - 
+                       len(key)): 
+            key.append(key[i % len(key)]) 
+    return("" . join(key)) 
 
-# This function returns the
-# encrypted text generated
-# with the help of the key
-def cipherText(string, key):
-    cipher_text = []
-    for i in range(len(string)):
-        x = (ord(string[i]) +
+# This function returns the  
+# encrypted text generated  
+# with the help of the key 
+def cipherText(string, key): 
+    cipher_text = [] 
+    for i in range(len(string)): 
+        x = (ord(string[i]) + 
              ord(key[i])) % 26
-        x += ord('A')
-        cipher_text.append(chr(x))
-    return("" . join(cipher_text))
-
-# This function decrypts the
-# encrypted text and returns
-# the original text
-def originalText(cipher_text, key):
-    orig_text = []
-    for i in range(len(cipher_text)):
-        x = (ord(cipher_text[i]) -
+        x += ord('A') 
+        cipher_text.append(chr(x)) 
+    return("" . join(cipher_text)) 
+      
+# This function decrypts the  
+# encrypted text and returns  
+# the original text 
+def originalText(cipher_text, key): 
+    orig_text = [] 
+    for i in range(len(cipher_text)): 
+        x = (ord(cipher_text[i]) - 
              ord(key[i]) + 26) % 26
-        x += ord('A')
-        orig_text.append(chr(x))
+        x += ord('A') 
+        orig_text.append(chr(x)) 
     return("" . join(orig_text))
 
 def Euclides(m, n):
@@ -122,38 +122,22 @@ def generar(n):
     for i in range (a,b+1):
         if math.gcd(i,b)==1:
             probables.append(i)
-    #print("Números que se pueden usar: ",probables)
+    print("Números que se pueden usar: ",probables)
     #generar alpha
     alpha,beta=random.sample(probables,2)
     print(alpha,beta)
     return alpha,beta
     #generar betha
-def num_to_char(n):
-    m = chr(n + 97)
-    return m
-
-def char_to_num(k):
-    z = (ord(k.lower()) - 97)
-    return z
 
 def Encrypt(n, alpha, beta):
-    file = open("file.txt", "r")
-    f=open("mensaje_d.txt","w")
-    while 1:
-        # read by character
-        char = file.read(1)
-        if not char:
-            break
-        P_n = char_to_num(char)
-        C_n = ((alpha * P_n) + beta) % n
-        #print(C_n)
-        cipher_text=(num_to_char(C_n));
-        #print(cipher_text)
-        f.write(cipher_text)
-        #print(char)
-    file.close()
-    f.close
-
+        f=open("mensaje_d.txt","wb")
+        #f.write(decifrarmensaje)
+        for letra in f:
+            P_n = int(letra)
+            C_n = int(((alpha * P_n) + beta) % n)
+            cipher_text=char(C_n)
+            f.write(string(cipher_text))
+            f.close
 
      #/*
      #*  Aplicando la formula de des cifrado: P_n = alpha^-1 * [ C_n + (-beta) ] mod longitud_del_alfabeto, donde:
