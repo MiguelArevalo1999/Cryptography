@@ -40,10 +40,15 @@ combo1.place(x=200,y=130)
 combo1['values']=('Español','Ingles')
 
 def seleccionar_funcion():
-        combo_sel=combo1.get()
-        if combo_sel == "Español":
+        combo_sel1=combo1.get()
+        combo_sel=combo.get()
+        if combo_sel1 == "Español" and combo_sel == "Vigenére":
             n=27
-        elif combo_sel == "Ingles":
+        elif combo_sel1 == "Español" and combo_sel == "Affine":
+            n=27
+        elif combo_sel1 == "Ingles" and combo_sel == "Vigenére":
+            n=26
+        elif combo_sel1 == "Ingles" and combo_sel == "Affine":
             n=26
         else:
             messagebox.showinfo("Error ","You must select an option")
