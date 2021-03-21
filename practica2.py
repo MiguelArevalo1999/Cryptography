@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import messagebox, filedialog
 from tkinter import ttk
 import tkinter as tk
+import math
+import random
 
 raiz=Tk()
 raiz.title("Vigenére/Affine")
@@ -41,10 +43,12 @@ combo1['values']=('Spanish','English')
 def seleccionar_funcion():
         combo_sel1=combo1.get()
         combo_sel=combo.get()
-        if combo_sel1 == "Español" and combo_sel == "Vigenére":
+        if combo_sel1 == "Spanish" and combo_sel == "Vigenére":
             n=27
-        elif combo_sel1 == "Español" and combo_sel == "Affine":
+        elif combo_sel1 == "Spanish" and combo_sel == "Affine":
             n=27
+            generar(n)
+            #Encrypt(n,a,b)
         elif combo_sel1 == "Ingles" and combo_sel == "Vigenére":
             n=26
         elif combo_sel1 == "Ingles" and combo_sel == "Affine":
@@ -111,6 +115,19 @@ def ExtEuclidean(a, b):
         numiteraciones += 1
     return b, x0, y0
 
+def generar(n):
+    probables=[]
+    a=1
+    b=n
+    for i in range (a,b+1):
+        if math.gcd(i,b)==1:
+            probables.append(i)
+    print("Números que se pueden usar: ",probables)
+    #generar alpha
+    alpha,beta=random.sample(probables,2)
+    print(alpha,beta)
+    return alpha,beta
+    #generar betha
 
 def Encrypt(n, alpha, beta):
         f=open("mensaje_d.txt","wb")
