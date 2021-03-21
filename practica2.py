@@ -1,13 +1,12 @@
 from tkinter import *
 from tkinter import messagebox, filedialog
 from tkinter import ttk
-from PIL import ImageTk, Image
 import tkinter as tk
 
 raiz=Tk()
-raiz.title("Cipher/Deciphered")
+raiz.title("Vigenére/Affine")
 raiz.resizable(0,0)
-raiz.iconbitmap("huella.ico")
+# raiz.iconbitmap("huella.ico")
 raiz.geometry("400x250")
 raiz.config(bg="cyan")
 
@@ -26,16 +25,18 @@ imageni=tk.PhotoImage(file="ipn.png")
 imageni_sub=imageni.subsample(15)
 widgeti=ttk.Label(image=imageni_sub)
 widgeti.place(x=315,y=5)
-text = Label(text="Escuela Superior de Computo\n Oswaldo Aguilar Martinez\n Miguel Anguel Arevalo Andrade")
+text = Label(text="Escuela Superior de Computo\n Oswaldo Aguilar Martinez\n Miguel Angel Arevalo Andrade")
 text.place(x=125,y=7)
 combo=ttk.Combobox(raiz)
 combo.place(x=200,y=100)
+text= Label(text="Cipher mode")
+text.place(x=110,y=100)
 combo['values']=('Vigenére','Affine')
 combo1=ttk.Combobox(raiz)
 text1= Label(text="Alfabeto")
 text1.place(x=120,y=130)
 combo1.place(x=200,y=130)
-combo1['values']=('Español','Ingles')
+combo1['values']=('Spanish','English')
 
 def seleccionar_funcion():
         combo_sel1=combo1.get()
