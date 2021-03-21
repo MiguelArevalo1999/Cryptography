@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter import messagebox, filedialog
 from tkinter import ttk
-from Cryptodome.Cipher import PKCS1_OAEP
-from Cryptodome.PublicKey import RSA
 from PIL import ImageTk, Image
 import tkinter as tk
 
