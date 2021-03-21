@@ -50,12 +50,16 @@ text4=Label(raiz, text = "Beta:")
 text4.place(x=10,y=120)
 text5=Label(raiz, text = "n:")
 text5.place(x=10,y=140)
+text6=Label(raiz, text = "Key:")
+text6.place(x=10,y=160)
 blank = Entry(raiz)
 blank.place(x=50,y=100)
 blank1 = Entry(raiz)
 blank1.place(x=50,y=120)
 blank2 = Entry(raiz)
 blank2.place(x=50,y=140)
+blank3 = Entry(raiz)
+blank3.place(x=50,y=160)
 
 def seleccionar_funcion():
         combo_sel1=combo1.get()
@@ -64,12 +68,19 @@ def seleccionar_funcion():
         alpha=int(blank.get())
         beta=int(blank1.get())
         n=int(blank2.get())
+        keyword = str(blank3.get())
         if combo_sel1 == "Spanish" and combo_sel == "Vigenére" and combo_sel2 == "Ciphered":
             n=27
             if combo_sel2 == "Ciphered":
-                cipherText(n,string,key)
+                with open('file.txt', 'r') as file:
+                 string = file.read().replace('\n', '')
+                 key = generateKey(string, keyword)
+                cipherText(string,key)
             elif combo_sel2 == "Deciphered":
-                originalText(n,cipher_text,key)
+                with open('mensaje_C.vig', 'r') as file:
+                 cipher_text = file.read().replace('\n', '')
+                 key = generateKey(string, keyword)
+                 originalText(cipher_text,key)
 
         elif combo_sel1 == "Spanish" and combo_sel == "Affine":
             n=27
@@ -80,9 +91,17 @@ def seleccionar_funcion():
         elif combo_sel1 == "English" and combo_sel == "Vigenére":
             n=26
             if combo_sel2 == "Ciphered":
-                cipherText(n,string,key)
+                with open('file.txt', 'r') as file:
+                 string = file.read().replace('\n', '')
+                 key = generateKey(string, keyword)
+                cipherText(string,key)
             elif combo_sel2 == "Deciphered":
-                originalText(n,cipher_text,key)
+                with open('file.txt', 'r') as file:
+                 string = file.read().replace('\n', '')
+                with open('mensaje_C.vig', 'r') as file:
+                 cipher_text = file.read().replace('\n', '')
+                 key = generateKey(string, keyword)
+                 originalText(cipher_text,key)
 
         elif combo_sel1 == "English" and combo_sel == "Affine":
             n=27
@@ -95,6 +114,7 @@ def seleccionar_funcion():
         return n
 
 def generateKey(string, key): 
+    print(key)
     key = list(key) 
     if len(string) == len(key): 
         return(key) 
@@ -104,29 +124,37 @@ def generateKey(string, key):
             key.append(key[i % len(key)]) 
     return("" . join(key)) 
 
-# This function returns the  
+# This function get the  
 # encrypted text generated  
 # with the help of the key 
-def cipherText(n,string, key): 
-    cipher_text = [] 
+def cipherText(string, key): 
+    cipher_text = []
+    print(string)
     for i in range(len(string)): 
         x = (ord(string[i]) + 
              ord(key[i])) % 26
         x += ord('A') 
         cipher_text.append(chr(x)) 
-    return("" . join(cipher_text)) 
+    cipher_text_s = ''.join(cipher_text)
+    file = open("mensaje_C.vig", "w") 
+    file.write(cipher_text_s) 
+    file.close() 
       
 # This function decrypts the  
 # encrypted text and returns  
 # the original text 
 def originalText(cipher_text, key): 
     orig_text = [] 
+    print(cipher_text)
     for i in range(len(cipher_text)): 
         x = (ord(cipher_text[i]) - 
              ord(key[i]) + 26) % 26
         x += ord('A') 
         orig_text.append(chr(x)) 
-    return("" . join(orig_text))
+    orig_text_s = ''.join(orig_text)
+    file = open("mensaje_C_D.vig", "w") 
+    file.write(orig_text_s) 
+    file.close()
 
 def Euclides(m, n):
 	r=0
