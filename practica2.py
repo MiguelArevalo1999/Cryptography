@@ -43,9 +43,9 @@ combo1['values']=('Spanish','English')
 def seleccionar_funcion():
         combo_sel1=combo1.get()
         combo_sel=combo.get()
-        if combo_sel1 == "Español" and combo_sel == "Vigenére":
+        if combo_sel1 == "Spanish" and combo_sel == "Vigenére":
             n=27
-        elif combo_sel1 == "Español" and combo_sel == "Affine":
+        elif combo_sel1 == "Spanish" and combo_sel == "Affine":
             n=27
             generar(n)
             #Encrypt(n,a,b)
@@ -90,9 +90,8 @@ def generar(n):
             probables.append(i)
     print("Números que se pueden usar: ",probables)
     #generar alpha
-    for i in range(1):
-        alpha=random.choice(probables)
-        beta=random.choice(probables)
+    alpha,beta=random.sample(probables,2)
+    print(alpha,beta)
     return alpha,beta
     #generar betha
 
