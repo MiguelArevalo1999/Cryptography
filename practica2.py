@@ -49,9 +49,9 @@ def seleccionar_funcion():
             n=27
             generar(n)
             #Encrypt(n,a,b)
-        elif combo_sel1 == "Ingles" and combo_sel == "Vigenére":
+        elif combo_sel1 == "English" and combo_sel == "Vigenére":
             n=26
-        elif combo_sel1 == "Ingles" and combo_sel == "Affine":
+        elif combo_sel1 == "English" and combo_sel == "Affine":
             n=26
         else:
             messagebox.showinfo("Error ","You must select an option")
