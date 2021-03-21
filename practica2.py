@@ -49,9 +49,6 @@ def seleccionar_funcion():
             messagebox.showinfo("Error ","You must select an option")
         return n
 
-
-
-
 def Euclides(m, n):
 	r=0
 	while (n!=0):
