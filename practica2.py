@@ -66,6 +66,10 @@ def seleccionar_funcion():
         n=int(blank2.get())
         if combo_sel1 == "Spanish" and combo_sel == "Vigenére" and combo_sel2 == "Ciphered":
             n=27
+            if combo_sel2 == "Ciphered":
+                cipherText(n,string,key)
+            elif combo_sel2 == "Deciphered":
+                originalText(n,cipher_text,key)
 
         elif combo_sel1 == "Spanish" and combo_sel == "Affine":
             n=27
@@ -75,6 +79,11 @@ def seleccionar_funcion():
                 Decrypt(n,alpha,beta)
         elif combo_sel1 == "English" and combo_sel == "Vigenére":
             n=26
+            if combo_sel2 == "Ciphered":
+                cipherText(n,string,key)
+            elif combo_sel2 == "Deciphered":
+                originalText(n,cipher_text,key)
+
         elif combo_sel1 == "English" and combo_sel == "Affine":
             n=27
             if combo_sel2 == "Ciphered":
@@ -98,7 +107,7 @@ def generateKey(string, key):
 # This function returns the  
 # encrypted text generated  
 # with the help of the key 
-def cipherText(string, key): 
+def cipherText(n,string, key): 
     cipher_text = [] 
     for i in range(len(string)): 
         x = (ord(string[i]) + 
