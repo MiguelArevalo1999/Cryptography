@@ -30,14 +30,14 @@ widgeti.place(x=350,y=5)
 text = Label(text="Escuela Superior de Computo\n Oswaldo Aguilar Martinez\n Miguel Angel Arevalo Andrade")
 text.place(x=125,y=7)
 combo=ttk.Combobox(raiz)
-combo.place(x=265,y=130)
+combo.place(x=315,y=130)
 text= Label(text="Cipher mode")
 text.place(x=240,y=130)
 combo['values']=('Vigenére','Affine')
 combo1=ttk.Combobox(raiz)
 text1= Label(text="Alphabet")
 text1.place(x=240,y=100)
-combo1.place(x=295,y=100)
+combo1.place(x=315,y=100)
 combo1['values']=('Spanish','English')
 combo2=ttk.Combobox(raiz)
 text2= Label(text="Operation")
@@ -266,6 +266,20 @@ def Decrypt(n, alpha, beta):
     file1.close()
     f1.close
 
+def validar_alpha():
+    a=int(blank.get())
+    n=int(blank2.get())
+    if(Euclides(a,n)==1):
+        messagebox.showinfo("Alpha","Alpha es valida")
+    else:
+        messagebox.showinfo("Alpha","Alpha es invalida")
+def validar_beta():
+    b=int(blank1.get())
+    n=int(blank2.get())
+    if(Euclides(b,n)==1):
+        messagebox.showinfo("Beta","Beta es valida")
+    else:
+        messagebox.showinfo("Beta","Beta es invalida")
      #/*
      #*  Aplicando la formula de des cifrado: P_n = alpha^-1 * [ C_n + (-beta) ] mod longitud_del_alfabeto, donde:
      #*  C_n, es el carácter del texto en claro descifrado
@@ -277,6 +291,10 @@ sel=Button(raiz, text="Start process",command=seleccionar_funcion)
 sel.place(x=50,y=190)
 sel1=Button(raiz, text="Random",command=generar_Rdm)
 sel1.place(x=50,y=220)
+sel2=Button(raiz, text="Alpha Validation",command=validar_alpha)
+sel2.place(x=150,y=190)
+sel3=Button(raiz, text="Beta Validation",command=validar_beta)
+sel3.place(x=150,y=220)
 #m=int(input("Ingresa el valor de alpha: "))
 #n=int(input("Ingresa el valor de n: "))
 #print("GCD: ",Euclides(m,n))
