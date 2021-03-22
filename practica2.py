@@ -214,9 +214,16 @@ def generar(n):
     #print(alpha,beta)
     return alpha,beta
     #generar betha
+def num_to_char(n):
+    m = chr(n + 97)
+    return m
+
+def char_to_num(k):
+    z = (ord(k.lower()) - 97)
+    return z
 
 def Encrypt(n, alpha, beta):
-    file = open("file.aff", "r")
+    file = open("file.txt", "r")
     f=open("file_.aff","w")
     while 1:
         # read by character
