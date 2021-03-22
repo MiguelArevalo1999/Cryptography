@@ -113,47 +113,47 @@ def seleccionar_funcion():
             messagebox.showinfo("Error ","You must select an option")
         return n
 
-def generateKey(string, key): 
+def generateKey(string, key):
     print(key)
-    key = list(key) 
-    if len(string) == len(key): 
-        return(key) 
-    else: 
-        for i in range(len(string) - 
-                       len(key)): 
-            key.append(key[i % len(key)]) 
-    return("" . join(key)) 
+    key = list(key)
+    if len(string) == len(key):
+        return(key)
+    else:
+        for i in range(len(string) -
+                       len(key)):
+            key.append(key[i % len(key)])
+    return("" . join(key))
 
-# This function get the  
-# encrypted text generated  
-# with the help of the key 
-def cipherText(string, key): 
+# This function get the
+# encrypted text generated
+# with the help of the key
+def cipherText(string, key):
     cipher_text = []
     print(string)
-    for i in range(len(string)): 
-        x = (ord(string[i]) + 
+    for i in range(len(string)):
+        x = (ord(string[i]) +
              ord(key[i])) % 26
-        x += ord('A') 
-        cipher_text.append(chr(x)) 
+        x += ord('A')
+        cipher_text.append(chr(x))
     cipher_text_s = ''.join(cipher_text)
-    file = open("mensaje_C.vig", "w") 
-    file.write(cipher_text_s) 
-    file.close() 
-      
-# This function decrypts the  
-# encrypted text and returns  
-# the original text 
-def originalText(cipher_text, key): 
-    orig_text = [] 
+    file = open("mensaje_C.vig", "w")
+    file.write(cipher_text_s)
+    file.close()
+
+# This function decrypts the
+# encrypted text and returns
+# the original text
+def originalText(cipher_text, key):
+    orig_text = []
     print(cipher_text)
-    for i in range(len(cipher_text)): 
-        x = (ord(cipher_text[i]) - 
+    for i in range(len(cipher_text)):
+        x = (ord(cipher_text[i]) -
              ord(key[i]) + 26) % 26
-        x += ord('A') 
-        orig_text.append(chr(x)) 
+        x += ord('A')
+        orig_text.append(chr(x))
     orig_text_s = ''.join(orig_text)
-    file = open("mensaje_C_D.vig", "w") 
-    file.write(orig_text_s) 
+    file = open("mensaje_C_D.vig", "w")
+    file.write(orig_text_s)
     file.close()
 
 def Euclides(m, n):
@@ -216,8 +216,8 @@ def generar(n):
     #generar betha
 
 def Encrypt(n, alpha, beta):
-    file = open("file.txt", "r")
-    f=open("mensaje_d.txt","w")
+    file = open("file.aff", "r")
+    f=open("file_.aff","w")
     while 1:
         # read by character
         char = file.read(1)
@@ -241,8 +241,8 @@ def InversoAditivo(beta,n):
     return addInv
 
 def Decrypt(n, alpha, beta):
-    file1 = open("mensaje.txt","r")
-    f1=open("mensaje_o.txt","w")
+    file1 = open("file_.aff","r")
+    f1=open("file.aff","w")
     while 1:
         # read by character
         char = file1.read(1)
