@@ -72,12 +72,12 @@ def seleccionar_funcion():
         if combo_sel1 == "Spanish" and combo_sel == "Vigenére" and combo_sel2 == "Ciphered":
             n=27
             if combo_sel2 == "Ciphered":
-                with open('file.txt', 'r') as file:
+                with open('elvis_paravigenere.txt', 'r') as file:
                  string = file.read().replace('\n', '')
                  key = generateKey(string, keyword)
                 cipherText(string,key)
             elif combo_sel2 == "Deciphered":
-                with open('mensaje_C.vig', 'r') as file:
+                with open('elvis_paravigenere_C.vig', 'r') as file:
                  cipher_text = file.read().replace('\n', '')
                  key = generateKey(string, keyword)
                  originalText(cipher_text,key)
@@ -91,14 +91,14 @@ def seleccionar_funcion():
         elif combo_sel1 == "English" and combo_sel == "Vigenére":
             n=26
             if combo_sel2 == "Ciphered":
-                with open('file.txt', 'r') as file:
+                with open('elvis_paravigenere.txt', 'r') as file:
                  string = file.read().replace('\n', '')
                  key = generateKey(string, keyword)
                 cipherText(string,key)
             elif combo_sel2 == "Deciphered":
-                with open('file.txt', 'r') as file:
+                with open('elvis_paravigenere.txt', 'r') as file:
                  string = file.read().replace('\n', '')
-                with open('mensaje_C.vig', 'r') as file:
+                with open('elvis_paravigenere_C.vig', 'r') as file:
                  cipher_text = file.read().replace('\n', '')
                  key = generateKey(string, keyword)
                  originalText(cipher_text,key)
@@ -136,7 +136,7 @@ def cipherText(string, key):
         x += ord('A')
         cipher_text.append(chr(x))
     cipher_text_s = ''.join(cipher_text)
-    file = open("mensaje_C.vig", "w")
+    file = open("elvis_paravigenere_C.vig", "w")
     file.write(cipher_text_s)
     file.close()
 
@@ -152,7 +152,7 @@ def originalText(cipher_text, key):
         x += ord('A')
         orig_text.append(chr(x))
     orig_text_s = ''.join(orig_text)
-    file = open("mensaje_C_D.vig", "w")
+    file = open("elvis_paravigenere_C_D.vig", "w")
     file.write(orig_text_s)
     file.close()
 
@@ -223,7 +223,7 @@ def char_to_num(k):
     return z
 
 def Encrypt(n, alpha, beta):
-    file = open("file.txt", "r")
+    file = open("elvis_paravigenere.txt", "r")
     f=open("file_.aff","w")
     while 1:
         # read by character
