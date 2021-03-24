@@ -104,7 +104,7 @@ def seleccionar_funcion():
                  originalText(cipher_text,key)
 
         elif combo_sel1 == "English" and combo_sel == "Affine":
-            n=27
+            n=26
             if combo_sel2 == "Ciphered":
                 Encrypt(n,alpha,beta)
             elif combo_sel2 == "Deciphered":
