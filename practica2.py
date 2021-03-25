@@ -295,12 +295,12 @@ sel2=Button(raiz, text="Alpha Validation",command=validar_alpha)
 sel2.place(x=150,y=190)
 sel3=Button(raiz, text="Beta Validation",command=validar_beta)
 sel3.place(x=150,y=220)
-#m=int(input("Ingresa el valor de alpha: "))
-#n=int(input("Ingresa el valor de n: "))
-#print("GCD: ",Euclides(m,n))
-#if(Euclides(m,n)==1):
-#	print("Llave valida\n")
-#else:
-#   print("Llave invalida\n")
-#print("Inverso Multiplicativo: ",Inverse(m,n))
+t=int(input("Ingresa el valor de alpha: "))
+u=int(input("Ingresa el valor de n: "))
+print("GCD: ",Euclides(t,u))
+if(Euclides(t,u)==1):
+        print("Inverso Multiplicativo: ",Inverse(t,u))
+        print("Llave valida\n")
+else:
+   print("Llave invalida\n")
 raiz.mainloop()
