@@ -83,7 +83,7 @@ def seleccionar_funcion():
                  originalText(cipher_text,key)
 
         elif combo_sel1 == "Spanish" and combo_sel == "Affine":
-            n=27
+            #n=27
             if combo_sel2 == "Ciphered":
                 Encrypt(n,alpha,beta)
             elif combo_sel2 == "Deciphered":
@@ -104,7 +104,7 @@ def seleccionar_funcion():
                  originalText(cipher_text,key)
 
         elif combo_sel1 == "English" and combo_sel == "Affine":
-            n=26
+            #n=26
             if combo_sel2 == "Ciphered":
                 Encrypt(n,alpha,beta)
             elif combo_sel2 == "Deciphered":
@@ -182,8 +182,8 @@ def ExtEuclidean(a, b):
 
 def generar_Rdm():
     combo_sel1=combo1.get()
+    n=int(blank2.get())
     if combo_sel1 == "Spanish":
-        n=27
         blank.delete(0, END)
         blank1.delete(0, END)
         blank2.delete(0, END)
@@ -192,7 +192,7 @@ def generar_Rdm():
         blank1.insert(0,beta)
         blank2.insert(0,n)
     else:
-        n=26
+        #n=26
         blank.delete(0, END)
         blank1.delete(0, END)
         blank2.delete(0, END)
@@ -223,8 +223,8 @@ def char_to_num(k):
     return z
 
 def Encrypt(n, alpha, beta):
-    file = open("elvis_paravigenere.txt", "r")
-    f=open("file_.aff","w")
+    file = open("simon_paraAffine.txt", "r")
+    f=open("file_.aff","wb")
     while 1:
         # read by character
         char = file.read(1)
@@ -234,8 +234,8 @@ def Encrypt(n, alpha, beta):
         C_n = ((alpha * P_n) + beta) % n
         #print(C_n)
         cipher_text=(num_to_char(C_n))
-        #print(cipher_text)
-        f.write(cipher_text)
+        print(cipher_text)
+        f.write(cipher_text.encode('UTF-8'))
         #print(char)
     file.close()
     f.close
@@ -248,8 +248,9 @@ def InversoAditivo(beta,n):
     return addInv
 
 def Decrypt(n, alpha, beta):
-    file1 = open("file_.aff","r")
-    f1=open("file.aff","w")
+    file1 = open("file_.aff","r",encoding='UTF-8')
+    f1=open("file.aff","wb")
+    print("Mensaje Decifrado")
     while 1:
         # read by character
         char = file1.read(1)
@@ -260,7 +261,7 @@ def Decrypt(n, alpha, beta):
         beta_inverso_aditivo = InversoAditivo(beta, n)
         P_n = ( alpha_inverso_multiplicativo * ( C_n + beta_inverso_aditivo ) ) % n
         decipher_text=(num_to_char(P_n))
-        f1.write(decipher_text)
+        f1.write(decipher_text.encode('UTF-8'))
         print(decipher_text)
             #print(char)
     file1.close()
